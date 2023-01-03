@@ -52,6 +52,7 @@ function App() {
         <button value={true} onClick={testFuc}>console log true</button>
         <div id="show-area"></div>
         <Item2 value="好東西" name="測試物品">測試物品children</Item2>
+        <Item2 value="壞東西">測試物品children2</Item2>
       </header>
     </div>
   );
