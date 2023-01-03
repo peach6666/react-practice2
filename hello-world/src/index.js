@@ -1,11 +1,15 @@
+//此為入口檔案
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+//主component，function App()
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 //建構root Dom
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 //用引入的App渲染dom
 root.render(
   <React.StrictMode>
