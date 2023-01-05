@@ -12,9 +12,10 @@ export function StateComponent(){
     const [count,setCount]=useState(0)
 
     //useEffect為hook的一種，可視為componentDidMount，componentDidUpdate 和 componentWillUnmount 等生命週期的組合。
-    //資料fetch、設地subscription、手動改變React component 中的 DOM 都是side effect的範例
+    //資料fetch、設定subscription、手動改變React component 中的 DOM 都是side effect的範例
     //useEffect會記住傳遞的function(稱為effect)在re-render後呼叫他(第二參數不填則每次更新都會呼叫)
     //在component內部呼叫他可以直接存取state變數或任何props，不需要特殊api去讀取
+
     //點擊呼叫setCount後，網站title會在re-render後更新
     //參數為useEffect(callback,array(選用))
     useEffect(() => {
@@ -33,6 +34,7 @@ export function StateComponent(){
     //點擊呼叫setCount會傳入新值，re-render stateComponent並傳入新count值取代舊count值
     return(
         <div>
+            <h1>useState+useEffect</h1>
             <p>You click {count} times</p>
             <button onClick={()=>{setCount(count+1)}}>
                 Increase

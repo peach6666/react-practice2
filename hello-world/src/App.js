@@ -3,6 +3,8 @@ import { ShowName } from './jsxComponent';
 import { StateComponent } from './stateComponent';
 import { ContextChild, ContextComponent, ContextGrandson } from './contextComponent';
 import { Counting } from './reduceComponent';
+import { MemoUse, CallbackUse} from './callbackComponent';
+import { RefUse } from './refComponent';
 import './App.css';
 
 //我是Peach按鈕的功能，把show-area區塊的文字改為我被按到
@@ -34,7 +36,10 @@ const element = <p>我是element</p>
 function Item(props){
   console.log(props)
   return(
-    <button onClick={props.handleClick}>{props.children}</button>
+    <>
+      <h1>我是Item元件</h1>
+      <button onClick={props.handleClick}>{props.children}</button>
+    </>
   )
 }
 
@@ -43,6 +48,7 @@ function Item(props){
 function Item2(item){
   return(
     <div>
+      <h1>元件複用測試</h1>
       <p>{item.name}</p>
       <p>{item.children}</p>
       <p>{item.value}</p>
@@ -59,21 +65,24 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         {element}
         <ShowName></ShowName>
+        <h1>APP區塊</h1>
         <p>{author.title}'s first App</p>
         <Item handleClick={printMessage} name="我的名字">我是Peach</Item>
-        <button value={true} onClick={testFuc}>console log true</button>
+        <button value={true} onClick={testFuc}>console true測試</button>
         <div id="show-area"></div>
-        <Item2 value="好東西" name="元件複用測試">測試物品children</Item2>
+        <Item2 value="好東西" name="我有name">測試物品children</Item2>
         <Item2 value="壞東西">測試物品children2</Item2>
         <StateComponent/>
         <ContextComponent/>
         <ContextChild/>
         <ContextGrandson/>
         <Counting/>
+        <MemoUse/>
+        <CallbackUse/>
+        <RefUse/>
       </header>
     </div>
   );
 }
-
 
 export default App;

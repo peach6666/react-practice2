@@ -9,9 +9,9 @@ import { useReducer } from "react";
 const num = {count: 0}
 
 //加減函式
-//state的值是localState?
+//state的值由localState傳入
 function computed(state,action){
-    //按鈕dispatch時傳type作為payload，switch依照type進行加或減
+    //按鈕dispatch時傳type，switch依照type值進行加或減
     switch(action.type){
         case 'increment':
             return {count:state.count++}
@@ -23,11 +23,12 @@ export function Counting(){
     //useReducer第一個參數(computed)用來設定變更state的規則(加減state)
     //第二個參數num作為初始state
     //第三個參數是初始化state的函式(選用)
-    //localState的值是num?
+    //localState的值由num傳入
     //dispatch用以觸發computed函式的第二參數action
     const [localState, dispatch] = useReducer(computed, num)
     return(
         <div>
+            <h1>useReducer</h1>
             Count:{localState.count}
             <button onClick={()=>dispatch({type:'increment'})}>+</button>
             <button onClick={()=>dispatch({type:'decrement'})}>-</button>

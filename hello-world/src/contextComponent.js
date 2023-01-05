@@ -14,9 +14,12 @@ export function ContextComponent(props){
         //Provider為提供者，讓其子孫輩component都可取用value的值
         //Provider可以複數個做成巢狀，內層以下的Consumer會拿到內層Provider的value，夾在內外層中間的Consumer會拿到外層的value
         //一旦Provider的value值改變，其底下接收其值的Consumer必定會re-render(避免inline賦值給value，否則容易造成效能問題)
-        <ContextExample.Provider value={slogan}>
-            <ContextChild/>
-        </ContextExample.Provider>
+        <div>
+            <h1>useContext</h1>
+            <ContextExample.Provider value={slogan}>
+                <ContextChild/>
+            </ContextExample.Provider>
+        </div>
     )
 }
 //ContextChild作為父輩
