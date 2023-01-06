@@ -19,8 +19,10 @@ export function StateComponent(){
     //點擊呼叫setCount後，網站title會在re-render後更新
     //參數為useEffect(callback,array(選用))
     useEffect(() => {
+        //componentDidMount(創建，render後執行(DOM掛載完成))及componetDidUpdate(更新，state改變時執行)
         document.title = `You clicked ${count} times`
 
+        //componentDidUpdate及componentWillUnmount(即將銷毀)
         //effect的可選清除機制。每個 effect 都可以回傳一個會在它之後執行清除的 function
         //在component unmount時，React會執行清除。但是effect會在每個render中執行，這說明React可以在下次執行effect之前清除前一個render的effect
         return ()=>{
@@ -53,3 +55,17 @@ function ExampleWithManyStates() {
         setFruit('apple')
     }
 }
+
+// useEffect時間軸
+// 1.建立、呼叫function component
+// 2.真正更新DOM
+// 3.渲染畫面
+// 4.呼叫useEffect
+// 5.「某個時間點」，偵測到state、props被改變
+// 6.重新呼叫function component
+// 7.在virtual DOM比較所有和原始DOM不一樣的地方
+// 8.真正更新DOM
+// 9.渲染畫面
+// 10.呼叫useEffect
+// 11.「某個時間點」，元件被移除
+// 12.呼叫useEffect

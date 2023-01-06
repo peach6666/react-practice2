@@ -6,14 +6,18 @@ import './index.css';
 //主component，function App()
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
 
 //建構root Dom
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 //用引入的App渲染dom
+//HashRouter作為元件包裹App
 root.render(
   <React.StrictMode>
-    <App/>
+    <BrowserRouter>
+      <App/>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
