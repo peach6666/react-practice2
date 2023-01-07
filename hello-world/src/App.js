@@ -3,10 +3,13 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import HomePage from './home';
 import { ShowName } from './jsx/jsxComponent';
-import JsxChild from './jsx/jsxChild';
+import RouterHook from './jsx/routerHook';
 //動態路由 
-import JsxDynamicId from './jsx/jsxDynamicId';
+import DynamicId from './jsx/dynamicId';
+//捲動到底部
+import ScrollToBottom from './jsx/scrollToBottom';
 import HookPage from './hook/hookpage';
+import Father from './component/father';
 import Error404Page from './404Page';
 
 
@@ -21,12 +24,14 @@ function App() {
       <Route path='/' element={<HomePage/>}>
         <Route path='/hook' element={<HookPage/>}></Route>
         <Route path='/jsx' element={<ShowName/>}>
-          <Route path='jsxChild' element={<JsxChild/>}></Route>
-          <Route path='jsxChild/:id' element={<JsxDynamicId/>}></Route>
+          <Route path='routerHook' element={<RouterHook/>}></Route>
+          <Route path='routerHook/:id' element={<DynamicId/>}></Route>
         </Route>
+        <Route path='/father' element={<Father/>}></Route>
       </Route>
       <Route path='*' element={<Error404Page/>}></Route>
     </Routes>
+    <ScrollToBottom/>
     </>
   );
 }
