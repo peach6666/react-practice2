@@ -11,6 +11,8 @@ import ScrollToBottom from './jsx/scrollToBottom';
 import HookPage from './hook/hookpage';
 import Father from './component/father';
 import Error404Page from './404Page';
+//把global-style以元件方式引入App
+import { GlobalStyle } from './Styled/global.styled';
 
 
 
@@ -20,6 +22,8 @@ import Error404Page from './404Page';
 function App() {
   return (
     <>
+    <GlobalStyle/>
+
     <Routes>
       <Route path='/' element={<HomePage/>}>
         <Route path='/hook' element={<HookPage/>}></Route>
